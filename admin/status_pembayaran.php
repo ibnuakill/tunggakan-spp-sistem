@@ -399,6 +399,12 @@ $data_total_filter = mysqli_fetch_assoc($result_total_filter);
                                     </td>
                                     <td class="no-print" style="text-align: center;">
                                         <div class="btn-group" role="group">
+                                            <a href="nota_pembayaran.php?id=<?php echo $data['id_pembayaran']; ?>"
+                                               target="_blank"
+                                               class="btn btn-sm btn-info"
+                                               title="Cetak Nota Pembayaran">
+                                               <i class="fas fa-receipt"></i> Nota
+                                            </a>
                                             <button class="btn btn-sm <?php echo ($data['status_valid'] == 1) ? 'btn-secondary' : 'btn-primary'; ?> btn-edit"
                                                 data-id="<?php echo $data['id_pembayaran']; ?>"
                                                 data-nis="<?php echo $data['nis']; ?>"

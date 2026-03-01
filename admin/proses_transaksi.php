@@ -58,7 +58,9 @@ if (isset($_POST['simpan_pembayaran'])) {
     $stmt->bind_param("sissiii", $nis, $id_biaya, $tanggal_bayar, $bulan_bayar, $tahun_bayar, $jumlah_bayar, $id_admin);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Transaksi pembayaran berhasil disimpan!'); window.location='status_pembayaran.php';</script>";
+        $id_baru = $koneksi->insert_id;
+        // Redirect ke halaman nota pembayaran untuk cetak kwitansi
+        echo "<script>window.location='nota_pembayaran.php?id=" . $id_baru . "&autoprint=0';</script>";
     } else {
         echo "<script>alert('Gagal menyimpan transaksi: " . $stmt->error . "'); window.location='transaksi.php';</script>";
     }
